@@ -41,6 +41,19 @@
     });
   }
 
+  // Google Ads — telefon arama dönüşüm takibi
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+          send_to: "AW-16931988333/2dC3CN6Wmc0cEO3G5ok_",
+          value: 1.0,
+          currency: "TRY"
+        });
+      }
+    });
+  });
+
   // Yıl
   var y = document.querySelector("#year");
   if (y) y.textContent = new Date().getFullYear();
