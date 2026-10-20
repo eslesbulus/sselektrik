@@ -46,7 +46,7 @@
     link.addEventListener("click", function () {
       if (typeof gtag === "function") {
         gtag("event", "conversion", {
-          send_to: "AW-16931988333/2dC3CN6Wmc0cEO3G5ok_",
+          send_to: "AW-18527982613",
           value: 1.0,
           currency: "TRY"
         });
