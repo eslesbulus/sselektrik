@@ -30,28 +30,37 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // İletişim formu (demo — gerçek gönderim için backend/e-posta servisi bağlanmalı)
+  // Google Ads dönüşüm bildirme fonksiyonu (Kişi / İletişim)
+  function reportConversion() {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", {
+        send_to: "AW-18527982613/de_MCOCJrqgdEJWo6oJF",
+        value: 1.0,
+        currency: "TRY"
+      });
+    }
+  }
+
+  // İletişim formu
   var form = document.querySelector("#iletisim-form");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      reportConversion();
       var ok = form.querySelector(".form-ok");
       if (ok) ok.style.display = "block";
       form.reset();
     });
   }
 
-  // Google Ads — telefon arama dönüşüm takibi
+  // Google Ads — telefon arama butonları dönüşüm takibi
   document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
-    link.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        gtag("event", "conversion", {
-          send_to: "AW-18527982613",
-          value: 1.0,
-          currency: "TRY"
-        });
-      }
-    });
+    link.addEventListener("click", reportConversion);
+  });
+
+  // Google Ads — WhatsApp butonları dönüşüm takibi
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+    link.addEventListener("click", reportConversion);
   });
 
   // Yıl
