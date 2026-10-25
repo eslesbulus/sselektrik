@@ -438,7 +438,7 @@ section { position: relative; }
     display: grid; grid-template-columns: 1fr 1fr; position: fixed; bottom: 0; left: 0; right: 0; z-index: 70;
     box-shadow: 0 -6px 24px rgba(0,0,0,.22);
   }
-  .mobile-call-bar a { padding: 16px 12px; display: flex; align-items: center; justify-content: center; gap: 9px; font-weight: 800; font-size: 1.02rem; }
+  .mobile-call-bar a { padding: 15px 8px; display: flex; align-items: center; justify-content: center; gap: 7px; font-weight: 800; font-size: clamp(0.88rem, 3.8vw, 1.02rem); white-space: nowrap; }
   .mobile-call-bar a svg { width: 21px; height: 21px; }
   .mobile-call-bar .m-call { background: linear-gradient(135deg, var(--yellow-bright), var(--gold)); color: #1a1400; }
   .mobile-call-bar .m-wa { background: #25D366; color: #fff; }
